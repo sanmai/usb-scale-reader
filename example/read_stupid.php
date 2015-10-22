@@ -4,8 +4,16 @@
  * Released under the MIT license.
  */
 
+if (empty($argv[1])) {
+    echo "Usage: php $argv[0] /dev/hidrawX\n";
+    return;
+}
 
-$binary = fread(fopen('/dev/hidraw3', 'r'), 7);
+$binary = fread(fopen($argv[1], 'r'), 7);
+
+$dataHex = bin2hex($binary);
+echo "Data: $dataHex\n";
+
 $data = (object) unpack('Creport/Cstatus/Cunit/cexponent/vweight', $binary);
 
 if ($data->report == 0x03 && $data->status == 0x04) {
