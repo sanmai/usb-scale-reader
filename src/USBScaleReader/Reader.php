@@ -27,9 +27,9 @@ class Reader
     public function __construct($data)
     {
         // we should account for different report lengths, but since we're lazy...
-        array_walk(unpack('Creport/Cstatus/Cunit/cexponent/vweight', $data), function ($value, $key) {
+        foreach (unpack('Creport/Cstatus/Cunit/cexponent/vweight', $data) as $key => $value) {
             $this->$key = $value;
-        });
+        }
 
         if ($this->report != Report::DATA || $this->status != Status::POSITIVE) {
             throw new Exception("Error reading scale data", Exception::READING_ERROR);
