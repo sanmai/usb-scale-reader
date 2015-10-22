@@ -8,12 +8,15 @@ include 'scaleWeightReport.php';
 
 /**
  * Add to /etc/udev/rules.d/80-persistent-scale.rules:
- * KERNEL=="hidraw*", ATTRS{manufacturer}=="Stamps.com", MODE="0644", SYMLINK+="scale"
+ * KERNEL=="hidraw*", ATTRS{manufacturer}=="Stamps.com", SYMLINK+="scale"
+ * KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev"
  *
  * And then reconnect your scale.
  *
  * For other makers see:
  * udevadm info -a -p  $(udevadm info -q path -n /dev/hidrawN)
+ * 
+ * You should be in plugdev for this script to work.
  */
 
 const SCALE = '/dev/scale';
