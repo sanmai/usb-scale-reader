@@ -7,7 +7,9 @@
 /**
  * Class to parse weight data from a standard USB scale.
  *
- * Tested with Stamps.com Stainless Steel 5 lb. Digital Scale
+ * Tested with:
+ * - Stamps.com Stainless Steel 5 lb. Digital Scale
+ * - DYMO M25 25 lb Digital Postal Scale
  */
 class scaleWeightReport
 {
