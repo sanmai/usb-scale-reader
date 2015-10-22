@@ -36,10 +36,6 @@ class Reader
         }
 
         $this->weight = $this->weight * pow(10, $this->exponent);
-
-        if ($this->status == Status::NEGATIVE) {
-            $this->weight *= -1;
-        }
     }
 
     public function getWeight()
