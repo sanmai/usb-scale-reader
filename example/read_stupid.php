@@ -29,8 +29,8 @@ if ($data->report == 0x03 && $data->status == 0x04) {
     }
 
     if ($data->unit == 0x02) {
-        echo "{$data->weight} g\n";
+        fprintf(STDOUT, "%.2f g\n", $data->weight);
     } else {
-        echo "{$data->weight} in other unit\n";
+        fprintf(STDOUT, "%.2f in other unit\n", $data->weight);
     }
 }
