@@ -16,6 +16,7 @@ namespace USBScaleReader;
 
 class Reader
 {
+    const BYTES_TO_READ = 6;
     const OZ_IN_GRAMS = 28.349523125;
 
     public $report;
@@ -58,10 +59,10 @@ class Reader
         }
 
         // read once to wake the scale up - may be not required
-        fread(fopen($deviceName, 'rb'), 7);
+        fread(fopen($deviceName, 'rb'), self::BYTES_TO_READ);
 
-        // load seven bytes
-        $binaryData = fread(fopen($deviceName, 'rb'), 7);
+        // load six bytes
+        $binaryData = fread(fopen($deviceName, 'rb'), self::BYTES_TO_READ);
 
         return new self($binaryData);
     }

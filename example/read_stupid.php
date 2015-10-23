@@ -9,7 +9,7 @@ if (empty($argv[1])) {
     return;
 }
 
-$binary = fread(fopen($argv[1], 'r'), 7);
+$binary = fread(fopen($argv[1], 'r'), 6);
 
 $dataHex = bin2hex($binary);
 echo "Data: $dataHex\n";

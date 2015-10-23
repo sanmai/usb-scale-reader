@@ -15,13 +15,13 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
 
     public function testWeightInGrams()
     {
-        $reader = $this->readerFromHex("030402006e0303");
+        $reader = $this->readerFromHex("030402006e03");
         $this->assertEquals(878, $reader->getWeight());
     }
 
     public function testWeightInOunces()
     {
-        $reader = $this->readerFromHex("03040bff4e0003");
+        $reader = $this->readerFromHex("03040bff4e00");
         $this->assertEquals(221.126280375, $reader->getWeight());
     }
 
@@ -31,7 +31,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidStatus()
     {
-        $reader = $this->readerFromHex("03020bff000003");
+        $reader = $this->readerFromHex("03020bff0000");
     }
 
     /**
@@ -40,7 +40,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testNegativeWeight()
     {
-        $reader = $this->readerFromHex("03050bff000003");
+        $reader = $this->readerFromHex("03050bff0000");
     }
 
     /**
@@ -49,7 +49,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testUnknownUnit()
     {
-        $reader = $this->readerFromHex("03040000900003");
+        $reader = $this->readerFromHex("030400009000");
         $reader->getWeight();
     }
 
