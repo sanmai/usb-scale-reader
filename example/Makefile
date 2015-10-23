@@ -6,7 +6,7 @@ all: usbscale
 debug: CFLAGS += -DDEBUG -g
 debug: clean usbscale
 
-usbscale: usbscale.c
+usbscale: usbscale.c usbscale.h
 	gcc -o usbscale $(CFLAGS) usbscale.c
 
 clean:

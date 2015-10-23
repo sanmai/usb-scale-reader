@@ -9,11 +9,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include <endian.h>
+#include "usbscale.h"
 
 struct data {
-  char report;
-  char status;
-  char unit;
+  enum report report;
+  enum status status;
+  enum unit unit;
   signed char exponent;
   unsigned short raw_weight; // 16 bit, little endian
   float weight;
@@ -59,17 +60,17 @@ int main(int argc, char** argv)
   #endif
 
   // Scale Data Report and Positive Weight Status
-  if (result.report == 0x03 && result.status == 0x04) {
+  if (result.report == DATA && result.status == POSITIVE) {
     // ...the scaling applied to the data as a base ten exponent
     result.weight = result.raw_weight * pow(10, result.exponent);
-    if (result.unit == 0x0B) {
+    if (result.unit == OUNCE) {
       // convert ounces to grams
       result.weight *= 28.349523125;
       // and change unit to grams
-      result.unit = 0x02;
+      result.unit = GRAM;
     }
 
-    if (result.unit == 0x02) {
+    if (result.unit == GRAM) {
       printf("%.2f g\n", result.weight);
     } else {
       printf("%.2f in other unit\n", result.weight);
