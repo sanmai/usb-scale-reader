@@ -52,4 +52,20 @@ For other makers see:
 
 These rules imply that you should be in `plugdev` for the scripts to work.
 
- 
+### C version
+
+There is also [a simple reading program](example/usbscale.c) written in C.
+
+To build it and run tests against PHP implementation:
+
+	cd example
+	make test
+
+Usage is as simple as it can be:
+
+	./usbscale /dev/hidraw3
+
+Outputs something like
+
+	70.87 g
+
