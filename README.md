@@ -10,7 +10,7 @@ Tested with:
  - Stamps.com Stainless Steel 5 lb. Digital Scale
  - DYMO M25 25 lb Digital Postal Scale
 
-See [read_stupid.php](example/read_stupid.php) if you want to understand how it works at a glance.
+See [read_stupid.php](example/read_stupid.php) or [usbscale.c](example/usbscale.c) if you want to understand how it works at a glance.
 
 ### Usage
 
