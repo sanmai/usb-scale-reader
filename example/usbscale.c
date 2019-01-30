@@ -11,6 +11,8 @@
 #include <endian.h>
 #include "usbscale.h"
 
+const char* unitAbbrev[] = {"unknown", "mg", "g", "kg", "cd", "taels", "gr", "dwt", "tonnes", "tons", "ozt", "oz", "lbs"};
+
 struct data {
   enum report report;
   enum status status;
@@ -70,11 +72,7 @@ int main(int argc, char** argv)
       result.unit = GRAM;
     }
 
-    if (result.unit == GRAM) {
-      printf("%.2f g\n", result.weight);
-    } else {
-      printf("%.2f in other unit\n", result.weight);
-    }
+    printf("%.2f %s\n", result.weight, unitAbbrev[result.unit]);
   }
 
   return 0;
