@@ -1,5 +1,6 @@
 SHELL=/bin/bash
-CFLAGS=-lm
+CFLAGS=
+LDFLAGS=-lm
 
 all: usbscale
 
@@ -7,7 +8,7 @@ debug: CFLAGS += -DDEBUG -g
 debug: clean usbscale
 
 usbscale: usbscale.c usbscale.h
-	gcc -o usbscale $(CFLAGS) usbscale.c
+	gcc -o usbscale $(CFLAGS) usbscale.c $(LDFLAGS)
 
 clean:
 	rm usbscale
