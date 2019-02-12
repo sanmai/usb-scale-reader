@@ -34,7 +34,6 @@ namespace USBScaleReader;
  * http://www.usb.org/developers/hidpage/
  * http://www.usb.org/developers/hidpage/pos1_02.pdf
  */
-
 class Reader
 {
     const BYTES_TO_READ = 6;
@@ -50,11 +49,11 @@ class Reader
     {
         // we should account for different report lengths, but since we're lazy...
         foreach (unpack('Creport/Cstatus/Cunit/cexponent/vweight', $data) as $key => $value) {
-            $this->$key = $value;
+            $this->{$key} = $value;
         }
 
-        if ($this->report != Report::DATA || $this->status != Status::POSITIVE) {
-            throw new Exception("Error reading scale data", Exception::READING_ERROR);
+        if ($this->report !== Report::DATA || $this->status !== Status::POSITIVE) {
+            throw new Exception('Error reading scale data', Exception::READING_ERROR);
         }
 
         $this->weight = $this->weight * pow(10, $this->exponent);
@@ -63,12 +62,12 @@ class Reader
     public function getWeight()
     {
         switch ($this->unit) {
-        	case Unit::GRAM:
-        	    return $this->weight;
-        	case Unit::OUNCE:
-        	    return $this->weight * self::OZ_IN_GRAMS;
-        	default:
-        	    throw new Exception("Unknown unit", Exception::UNSUPPORTED_UNIT);
+            case Unit::GRAM:
+                return $this->weight;
+            case Unit::OUNCE:
+                return $this->weight * self::OZ_IN_GRAMS;
+            default:
+                throw new Exception('Unknown unit', Exception::UNSUPPORTED_UNIT);
         }
     }
 

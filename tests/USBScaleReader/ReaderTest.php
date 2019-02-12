@@ -27,6 +27,9 @@ declare(strict_types=1);
 
 namespace USBScaleReader;
 
+/**
+ * @covers \USBScaleReader\Reader
+ */
 class ReaderTest extends \PHPUnit\Framework\TestCase
 {
     private function readerFromHex($hex)
@@ -36,50 +39,50 @@ class ReaderTest extends \PHPUnit\Framework\TestCase
 
     public function testWeightInGrams()
     {
-        $reader = $this->readerFromHex("030402006e03");
+        $reader = $this->readerFromHex('030402006e03');
         $this->assertEquals(878, $reader->getWeight());
     }
 
     public function testWeightInOunces()
     {
-        $reader = $this->readerFromHex("03040bff4e00");
+        $reader = $this->readerFromHex('03040bff4e00');
         $this->assertEquals(221.126280375, $reader->getWeight());
     }
 
     /**
-     * @expectedException USBScaleReader\Exception
+     * @expectedException \USBScaleReader\Exception
      * @expectedExceptionCode 1
      */
     public function testInvalidStatus()
     {
-        $reader = $this->readerFromHex("03020bff0000");
+        $reader = $this->readerFromHex('03020bff0000');
     }
 
     /**
-     * @expectedException USBScaleReader\Exception
+     * @expectedException \USBScaleReader\Exception
      * @expectedExceptionCode 1
      */
     public function testNegativeWeight()
     {
-        $reader = $this->readerFromHex("03050bff0000");
+        $reader = $this->readerFromHex('03050bff0000');
     }
 
     /**
-     * @expectedException USBScaleReader\Exception
+     * @expectedException \USBScaleReader\Exception
      * @expectedExceptionCode 2
      */
     public function testUnknownUnit()
     {
-        $reader = $this->readerFromHex("030400009000");
+        $reader = $this->readerFromHex('030400009000');
         $reader->getWeight();
     }
 
     /**
-     * @expectedException USBScaleReader\Exception
+     * @expectedException \USBScaleReader\Exception
      * @expectedExceptionCode 3
      */
     public function testUnreadableDevice()
     {
-        Reader::fromDevice("");
+        Reader::fromDevice('');
     }
 }

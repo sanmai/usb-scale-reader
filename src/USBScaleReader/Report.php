@@ -23,28 +23,29 @@
  * SOFTWARE.
  */
 
+declare(strict_types=1);
+
 namespace USBScaleReader;
 
 /**
- * Scale Report Types
+ * Scale Report Types.
  *
  * Documentation:
  * http://www.usb.org/developers/hidpage/
  * http://www.usb.org/developers/hidpage/pos1_02.pdf (p.29, p.58)
  */
-
 class Report
 {
     /** Scale Attributes Report */
-    const ATTR      = 1;
+    const ATTR = 1;
     /** Scale Control Report */
-    const CONTROL   = 2;
+    const CONTROL = 2;
     /** Scale Data Report */
-    const DATA      = 3;
+    const DATA = 3;
     /** Scale Status Report */
-    const STATUS    = 4;
+    const STATUS = 4;
     /** Scale Weight Limit Report */
-    const LIMIT     = 5;
+    const LIMIT = 5;
     /** Scale Statistics Report */
-    const STATS     = 6;
+    const STATS = 6;
 }
