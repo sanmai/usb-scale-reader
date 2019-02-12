@@ -1,31 +1,32 @@
 {
     "name": "sanmai/usb-scale-reader",
+    "type": "library",
     "description": "Standard USB scale reader library",
     "homepage": "https://github.com/sanmai/usb-scale-reader",
-    "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Alexey Kopytko",
-            "email": "alexey@kopytko.ru",
+            "email": "alexey@kopytko.com",
             "homepage": "http://www.alexeykopytko.com/"
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=7.0",
+        "sanmai/pipeline": "^0.3.2 || ^2.0 || ^3.0.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.5"
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "phpunit/phpunit": "^6.5 || ^7.4"
     },
     "autoload": {
-        "psr-4": {"USBScaleReader\\": "src/USBScaleReader"}
+        "psr-4": {
+            "USBScaleReader\\": "src/USBScaleReader"
+        }
     },
     "autoload-dev": {
-        "psr-4": {"USBScaleReader\\": "tests/USBScaleReader"}
-    },
-    "scripts": {
-        "test": [
-            "phpunit"
-        ]
+        "psr-4": {
+            "USBScaleReader\\": "tests/USBScaleReader"
+        }
     }
 }

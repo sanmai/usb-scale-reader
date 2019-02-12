@@ -6,7 +6,7 @@
 
 namespace USBScaleReader;
 
-class ReaderTest extends \PHPUnit_Framework_TestCase
+class ReaderTest extends \PHPUnit\Framework\TestCase
 {
     private function readerFromHex($hex)
     {

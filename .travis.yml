@@ -1,14 +1,21 @@
 language: php
 
-sudo: false
+language: php
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+  - nightly
 
 matrix:
-    include:
-        - php: 5.4
-        - php: 5.5
-        - php: 5.6
-    fast_finish: true
+  fast_finish: true
+  allow_failures:
+    - php: nightly
 
-script: composer test
+install:
+  - composer remove --no-update --dev friendsofphp/php-cs-fixer
+  - composer install --prefer-dist
 
-before_script: composer install
+script: vendor/bin/phpunit
+
