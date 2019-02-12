@@ -23,6 +23,8 @@
  * SOFTWARE.
  */
 
+declare(strict_types=1);
+
 if (empty($argv[1])) {
     echo "Usage: DEBUG=1 php $argv[0] /dev/hidrawX\n";
     return;

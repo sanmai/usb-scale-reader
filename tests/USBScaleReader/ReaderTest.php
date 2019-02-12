@@ -23,6 +23,8 @@
  * SOFTWARE.
  */
 
+declare(strict_types=1);
+
 namespace USBScaleReader;
 
 class ReaderTest extends \PHPUnit\Framework\TestCase
