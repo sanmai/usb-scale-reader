@@ -12,8 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "sanmai/pipeline": "^0.3.2 || ^2.0 || ^3.0.1"
+        "php": ">=7.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.13",
