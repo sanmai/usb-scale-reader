@@ -1,6 +1,7 @@
 # USBScaleReader
 
-[![Build Status](https://travis-ci.org/sanmai/usb-scale-reader.svg?branch=master)](https://travis-ci.org/sanmai/usb-scale-reader)
+[![Build Status](https://travis-ci.org/sanmai/usb-scale-reader.svg?branch=master)](https://travis-ci.org/sanmai/usb-scale-reader) 
+[![Latest Stable Version](https://poser.pugx.org/sanmai/usb-scale-reader/v/stable)](https://packagist.org/packages/sanmai/usb-scale-reader)
 
 This library lets you read weight from a standard USB scale using pure PHP. 
  
