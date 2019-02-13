@@ -15,6 +15,10 @@ See [read_stupid.php](example/read_stupid.php) or [usbscale.c](example/usbscale.
 
 ### Usage
 
+    composer require sanmai/usb-scale-reader
+    
+And then:
+
 ```php
 $reader = \USBScaleReader\Reader::fromDevice('/dev/scale');
 $weightInGrams = $reader->getWeight();
