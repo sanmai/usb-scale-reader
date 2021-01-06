@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: 
+        php-version:
           - '7.0'
           - '7.1'
           - '7.2'
@@ -80,4 +80,3 @@ jobs:
       - name: Run PHP-CS-Fixer, version ${{ env.PHP_CS_FIXER_VERSION }}
         run: |
           php-cs-fixer fix --diff --dry-run --verbose
-
