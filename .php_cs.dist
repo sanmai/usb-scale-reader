@@ -8,6 +8,7 @@ return PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
     ->setRules([
         '@Symfony' => true,
+        '@PHPUnit84Migration:risky' => true,
         'array_syntax' => ['syntax' => 'short'],
         'declare_strict_types' => true,
         'explicit_indirect_variable' => true,

@@ -49,40 +49,36 @@ class ReaderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(221.126280375, $reader->getWeight());
     }
 
-    /**
-     * @expectedException \USBScaleReader\Exception
-     * @expectedExceptionCode 1
-     */
     public function testInvalidStatus()
     {
+        $this->expectException(\USBScaleReader\Exception::class);
+        $this->expectExceptionCode(1);
+
         $reader = $this->readerFromHex('03020bff0000');
     }
 
-    /**
-     * @expectedException \USBScaleReader\Exception
-     * @expectedExceptionCode 1
-     */
     public function testNegativeWeight()
     {
+        $this->expectException(\USBScaleReader\Exception::class);
+        $this->expectExceptionCode(1);
+
         $reader = $this->readerFromHex('03050bff0000');
     }
 
-    /**
-     * @expectedException \USBScaleReader\Exception
-     * @expectedExceptionCode 2
-     */
     public function testUnknownUnit()
     {
+        $this->expectException(\USBScaleReader\Exception::class);
+        $this->expectExceptionCode(2);
+
         $reader = $this->readerFromHex('030400009000');
         $reader->getWeight();
     }
 
-    /**
-     * @expectedException \USBScaleReader\Exception
-     * @expectedExceptionCode 3
-     */
     public function testUnreadableDevice()
     {
+        $this->expectException(\USBScaleReader\Exception::class);
+        $this->expectExceptionCode(3);
+
         Reader::fromDevice('');
     }
 }
