@@ -80,3 +80,15 @@ jobs:
       - name: Run PHP-CS-Fixer, version ${{ env.PHP_CS_FIXER_VERSION }}
         run: |
           php-cs-fixer fix --diff --dry-run --verbose
+
+  c:
+    name: Build and test C version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build and test
+        run: |
+          make -C example/ test
