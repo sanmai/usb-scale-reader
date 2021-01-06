@@ -39,6 +39,8 @@ if (isset($_SERVER['DEBUG'])) {
     file_put_contents("$dataHex.bin", $binary);
 }
 
+$unitAbbr = ['unknown', 'mg', 'g', 'kg', 'cd', 'taels', 'gr', 'dwt', 'tonnes', 'tons', 'ozt', 'oz', 'lbs'];
+
 $data = (object) unpack('Creport/Cstatus/Cunit/cexponent/vweight', $binary);
 
 if ($data->report === 0x03 && $data->status === 0x04) {
@@ -50,9 +52,5 @@ if ($data->report === 0x03 && $data->status === 0x04) {
         $data->unit = 0x02;
     }
 
-    if ($data->unit === 0x02) {
-        fprintf(STDOUT, "%.2f g\n", $data->weight);
-    } else {
-        fprintf(STDOUT, "%.2f in other unit\n", $data->weight);
-    }
+    fprintf(STDOUT, "%.2f %s\n", $data->weight, $unitAbbr[$data->unit]);
 }
