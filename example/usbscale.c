@@ -8,7 +8,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#if defined(__APPLE__) && defined(__MACH__)
+#include <machine/endian.h>
+#include <libkern/OSByteOrder.h>
+#define le16toh(x) OSSwapLittleToHostInt16(x)
+#else
 #include <endian.h>
+#endif
 #include "usbscale.h"
 
 const char* unitAbbrev[] = {"unknown", "mg", "g", "kg", "cd", "taels", "gr", "dwt", "tonnes", "tons", "ozt", "oz", "lbs"};
